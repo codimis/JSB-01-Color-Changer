@@ -60,7 +60,7 @@ header ul li a:hover {
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  column-gap: 15px;
+  column-gap: 20px;
   padding: 50px 0;
   width: 50%;
   height: 100%;
@@ -68,8 +68,8 @@ header ul li a:hover {
 .color-area {
   width: 175px;
   height: 100px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
+  border: 1px solid #000;
+  margin-bottom: 20px;
 }
 footer {
   text-align: center;
