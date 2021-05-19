@@ -151,6 +151,22 @@ main {
   place-items: center;
 }
 
+@media screen and (max-width: 550px) {
+  .container-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .container-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 /*
 =============== 
 Nav
