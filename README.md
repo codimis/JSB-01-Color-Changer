@@ -17,3 +17,4 @@ This project is about creating a random background color changer by practicing b
 - Math.floor()
 - Math.random()
 - array.length
+- DOM Traversing
