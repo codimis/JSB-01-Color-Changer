@@ -1,12 +1,9 @@
-const text = document.getElementById("text");
-const btn = document.getElementById("btn");
-const genBG = document.querySelector(".left");
-const colorBox1 = document.getElementById("color-1");
-const colorBox2 = document.getElementById("color-2");
-const colorBox3 = document.getElementById("color-3");
-const colorBox4 = document.getElementById("color-4");
-const colorBox5 = document.getElementById("color-5");
-const colorBox6 = document.getElementById("color-6");
+const hexColor = document.getElementById("hex-color");
+const bin = document.querySelectorAll(".delete");
+const btnGenerate = document.getElementById("btn-generate");
+const btnAdd = document.getElementById("btn-add");
+const colorBar = document.getElementById("color-bar");
+const main = document.getElementById("main");
 const codeGenArr = [
   "0",
   "1",
@@ -32,28 +29,43 @@ const randomColorCode = () => {
   }
   return hexCode;
 };
-
-btn.addEventListener("click", () => {
+window.onload = () => {
   const colorCode = randomColorCode();
-  text.innerText = colorCode;
-  genBG.style.backgroundColor = colorCode;
+  hexColor.innerText = colorCode;
+  colorBar.style.backgroundColor = colorCode;
+};
+btnGenerate.addEventListener("click", () => {
+  const colorCode = randomColorCode();
+  hexColor.innerText = colorCode;
+  colorBar.style.backgroundColor = colorCode;
 });
-
-colorBox1.addEventListener("click", () => {
-  colorBox1.style.backgroundColor = genBG.style.backgroundColor;
+btnAdd.addEventListener("click", () => {
+  main.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="color-bar" style="background-color:${hexColor.innerText}">
+      <span class="hex-color">
+        ${hexColor.innerText}
+      </span>
+      <div class="color-bar__icons">
+        <label for="color-picker">
+          <i class="fas fa-sliders-h"></i>
+          <input type="color" id="color-picker" />
+        </label>
+        <i class="fas fa-trash-alt delete"></i>
+      </div>
+    </div>
+    `
+  );
 });
-colorBox2.addEventListener("click", () => {
-  colorBox2.style.backgroundColor = genBG.style.backgroundColor;
+bin.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    let arr = [];
+    arr = e.target.parentElement.parentElement;
+    console.log(arr);
+    // e.target.parentElement.parentElement.remove();
+  });
 });
-colorBox3.addEventListener("click", () => {
-  colorBox3.style.backgroundColor = genBG.style.backgroundColor;
-});
-colorBox4.addEventListener("click", () => {
-  colorBox4.style.backgroundColor = genBG.style.backgroundColor;
-});
-colorBox5.addEventListener("click", () => {
-  colorBox5.style.backgroundColor = genBG.style.backgroundColor;
-});
-colorBox6.addEventListener("click", () => {
-  colorBox6.style.backgroundColor = genBG.style.backgroundColor;
-});
+// bin.addEventListener("click", (e) => {
+//   console.log(e.target.parentElement.parentElement);
+//   // e.target.parentElement.parentElement.remove();
+// });
